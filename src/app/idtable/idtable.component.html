@@ -1,0 +1,24 @@
+
+<div class="container pt-5">
+<table class="table shadow">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Full Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Blood Group</th>
+        <th scope="col">Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let table of parsedId; let i = index">
+        <td>{{i+1}}</td>
+        <td>{{table?.fullname}}</td>
+        <td>{{table?.age}}</td>
+        <td>{{table?.bloodgroup}}</td>
+        <td>{{table?.location}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

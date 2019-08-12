@@ -1,0 +1,8 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+        <a class="nav-item nav-link" routerLink="../idform" routerLinkActive="active" style="cursor:pointer">Create</a>
+        <a class="nav-item nav-link" routerLink="../idtable" routerLinkActive="active" style="cursor:pointer">Cards Table</a>
+        <a class="nav-item nav-link" style="cursor:pointer"(click)="logout()">Logout</a>
+    </div>
+</nav>

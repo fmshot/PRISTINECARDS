@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+/* a { cursor: pointer }; */
+@import "assets/css/bootstrap.min.css";
+@import "assets/css/style.css";
+@import "assets/css/contact.css";
+@import "assets/css/flexslider.css";
+@import "assets/css/simpleLightbox.css";
+@import "assets/css/simpleLightbox.css";
+
+.btn:disabled {
+  cursor: not-allowed;
+}

@@ -1,0 +1,82 @@
+<div class='pr-5 pt-4' style="float:right">
+  <button type="button" *ngIf='!showSingleCard' (click)='showSingleCard=!showSingleCard' class="btn btn-warning">Show
+    Current Card</button>
+</div>
+<div class='pr-5 pt-4' style="float:right">
+  <button type="button" *ngIf='showSingleCard' (click)='showSingleCard=!showSingleCard' class="btn btn-warning">Back To
+    Forms</button>
+</div>
+
+<br><br><br><br>
+
+
+<div class="" *ngIf='!showSingleCard'>
+  <h4 class="text-center">FILL THE FORM BELOW TO CREATE YOUR CUSTOM CARD</h4><br><br>
+
+  <h5 class="text-center pb-5">No Of Cards Created:{{totalIds}}</h5>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="container">
+          <form class="container shadow" [formGroup]="makeIdFormGroup" (ngSubmit)="makeNewId()">
+            <div class="py-4" style="text-align:center">
+              <h5>PLEASE FILL IN CARD DETAILS</h5>
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputEmail1">Full Name</label>
+              <input type="text" class="form-control" formControlName="fullname" id="validationDefault01"
+                aria-describedby="emailHelp" placeholder="">
+                <!-- <small style="color:red" *ngIf='!makeIdFormGroup.valid'>enter full name</small> -->
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Age</label>
+              <input type="number" class="form-control" formControlName="age" id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="">
+                <small style="color:red" *ngIf='!makeIdFormGroup.valid'>Numbers only!</small>
+
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Blood Group</label>
+              <input type="text" class="form-control" formControlName="bloodgroup" id="exampleInputEmail1"
+                aria-describedby="emailHelp" placeholder="eg AA">
+                <small style="color:red" *ngIf='!makeIdFormGroup.valid'>enter only two letters</small>
+
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Location</label>
+              <input type="email" class="form-control" formControlName="location" id="exampleInputEmail1" 
+              aria-describedby="emailHelp" placeholder="">
+
+            </div>
+            <div class="pr-1">
+              <button type="submit" [disabled]="!makeIdFormGroup.valid" class="btn btn-primary">Submit</button>
+            </div>
+            <small *ngIf="!makeIdFormGroup.valid">Please fill all details above to create your Id</small>
+            <br>
+
+          </form>
+        </div>
+      </div>
+      
+
+
+      <div class="col-lg-2">
+
+
+        <app-idcard [imessage]=[makeIdFormGroup.value.fullname] [imessages]=[makeIdFormGroup.value.age]
+          [imessagess]=[makeIdFormGroup.value.bloodgroup] [imessagesss]=[makeIdFormGroup.value.location]></app-idcard>
+      </div>
+    </div>
+  </div>
+</div><br>
+<h5 class="text-center pb-5" *ngIf='!showSingleCard'>All CARDS:{{totalIds}}</h5>
+
+
+
+<div class="col-lg-4" id="outPopUp" *ngIf='showSingleCard'>
+  <app-idcard [imessage]=[makeIdFormGroup.value.fullname] [imessages]=[makeIdFormGroup.value.age]
+    [imessagess]=[makeIdFormGroup.value.bloodgroup] [imessagesss]=[makeIdFormGroup.value.location]></app-idcard>
+</div>
